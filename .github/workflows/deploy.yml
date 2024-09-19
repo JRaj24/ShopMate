@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - master  # it's always master
+      - master  
 
 jobs:
   deploy:
