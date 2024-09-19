@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - master  
+      - master  # Ensure this matches your branch name
 
 jobs:
   deploy:
@@ -11,16 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Updated to v3
-
-      # If you have dependencies, uncomment this section
-      # - name: Install dependencies
-      #   run: npm install
+        uses: actions/checkout@v3
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25  # Updated to v21
+        uses: amondnet/vercel-action@v25  # Use the latest available version
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ID }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
